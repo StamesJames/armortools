@@ -13,3 +13,8 @@ jobs:
       run: |
         cd armorpaint
         ../armorcore/make --graphics metal --compile
+    - name: Upload Compiled Program
+      uses: actions/upload-artifact@v3
+      with:
+        name: compiled-program
+        path: armorpaint/build 
