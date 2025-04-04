@@ -9,12 +9,21 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Compile
+    - name: Compile Armor Paint
       run: |
         cd armorpaint
         ../armorcore/make --graphics metal --compile
-    - name: Upload Compiled Program
+    - name: Upload Compiled ArmorPaint
       uses: actions/upload-artifact@v4
       with:
-        name: compiled-program
-        path: armorpaint/build 
+        name: compiled-armorpaint
+        path: armorpaint/build
+    - name: Compile Armor Lab
+      run: |
+        cd ../armorlab
+        ../armorcore/make --graphics metal --compile
+    - name: Upload Compiled ArmorLab
+      uses: actions/upload-artifact@v4
+      with:
+        name: compiled-armorlab
+        path: armorlab/build
